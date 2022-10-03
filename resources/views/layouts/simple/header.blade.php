@@ -13,7 +13,7 @@
       </div>
     </form>
     <div class="header-logo-wrapper col-auto p-0">
-      <div class="logo-wrapper"><a href="{{route('/')}}"><img class="img-fluid" src="{{asset('assets/images/logo/logo.png')}}" alt=""></a></div>
+      <div class="logo-wrapper"><a href="#"><img class="img-fluid" src="{{asset('assets/images/logo/logo.png')}}" alt=""></a></div>
       <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="align-center"></i></div>
     </div>
     <div class="left-header col horizontal-wrapper ps-0">
@@ -33,12 +33,12 @@
                       <h6>Error Page</h6>
                     </div>
                     <ul>
-                      <li><a href="{{route('error-400')}}">Error page 400</a></li>
+                      {{-- <li><a href="{{route('error-400')}}">Error page 400</a></li>
                       <li><a href="{{route('error-401')}}">Error page 401</a></li>
                       <li><a href="{{route('error-403')}}">Error page 403</a></li>
                       <li><a href="{{route('error-404')}}">Error page 404</a></li>
                       <li><a href="{{route('error-500')}}">Error page 500</a></li>
-                      <li><a href="{{route('error-503')}}">Error page 503</a></li>
+                      <li><a href="{{route('error-503')}}">Error page 503</a></li> --}}
                     </ul>
                   </div>
                 </div>
@@ -63,12 +63,12 @@
                       <h6>Usefull Pages</h6>
                     </div>
                     <ul>
-                      <li><a href="{{route('search')}}">Search Website</a></li>
+                      {{-- <li><a href="{{route('search')}}">Search Website</a></li>
                       <li><a href="{{route('unlock')}}">Unlock User</a></li>
                       <li><a href="{{route('forget-password')}}">Forget Password</a></li>
                       <li><a href="{{route('reset-password')}}">Reset Password</a></li>
                       <li><a href="{{route('maintenance')}}">Maintenance</a></li>
-                      <li><a href="{{route('login-bs-validation')}}">Login validation</a></li>
+                      <li><a href="{{route('login-bs-validation')}}">Login validation</a></li> --}}
                     </ul>
                   </div>
                 </div>
@@ -78,12 +78,12 @@
                       <h6>Email templates</h6>
                     </div>
                     <ul>
-                      <li class="ps-0"><a href="{{route('basic-template')}}">Basic Email</a></li>
+                      {{-- <li class="ps-0"><a href="{{route('basic-template')}}">Basic Email</a></li>
                       <li class="ps-0"><a href="{{route('email-header')}}">Basic With Header</a></li>
                       <li class="ps-0"><a href="{{route('template-email')}}">Ecomerce Template</a></li>
                       <li class="ps-0"><a href="{{route('template-email-2')}}">Email Template 2</a></li>
                       <li class="ps-0"><a href="{{route('ecommerce-templates')}}">Ecommerce Email</a></li>
-                      <li class="ps-0"><a href="{{route('email-order-success')}}">Order Success</a></li>
+                      <li class="ps-0"><a href="{{route('email-order-success')}}">Order Success</a></li> --}}
                     </ul>
                   </div>
                 </div>
@@ -93,15 +93,15 @@
                       <h6>Coming Soon</h6>
                     </div>
                     <ul class="svg-icon">
-                      <li><a href="{{route('comingsoon')}}"> <i data-feather="file"> </i>Coming-soon</a></li>
+                      {{-- <li><a href="{{route('comingsoon')}}"> <i data-feather="file"> </i>Coming-soon</a></li>
                       <li><a href="{{route('comingsoon-bg-video')}}"> <i data-feather="film"> </i>Coming-video</a></li>
-                      <li><a href="{{route('comingsoon-bg-img')}}"><i data-feather="image"> </i>Coming-Image</a></li>
+                      <li><a href="{{route('comingsoon-bg-img')}}"><i data-feather="image"> </i>Coming-Image</a></li> --}}
                     </ul>
                     <div>
                       <h6>Other Soon</h6>
                     </div>
                     <ul class="svg-icon">
-                      <li><a class="txt-secondary" href="{{route('sample-page')}}"> <i data-feather="airplay"></i>Sample Page</a></li>
+                      <li><a class="txt-secondary" href="#"> <i data-feather="airplay"></i>Sample Page</a></li>
                     </ul>
                   </div>
                 </div>
@@ -119,24 +119,24 @@
               <a href="#!" data-original-title="" title=""> <i data-feather="users"></i><span>Users</span></a>
               <ul class="header-level-sub-menu">
                 <li>
-                  <a href="{{route('user-profile')}}" data-original-title="" title=""> <i data-feather="user"></i><span>User Profile</span></a>
+                  {{-- <a href="{{route('user-profile')}}" data-original-title="" title=""> <i data-feather="user"></i><span>User Profile</span></a> --}}
                 </li>
                 <li>
-                  <a href="{{route('edit-profile')}}" data-original-title="" title=""> <i data-feather="user-minus"></i><span>User Edit</span></a>
+                  {{-- <a href="{{route('edit-profile')}}" data-original-title="" title=""> <i data-feather="user-minus"></i><span>User Edit</span></a> --}}
                 </li>
                 <li>
-                  <a href="{{route('user-cards')}}" data-original-title="" title=""> <i data-feather="user-check"></i><span>Users Cards</span></a>
+                  {{-- <a href="{{route('user-cards')}}" data-original-title="" title=""> <i data-feather="user-check"></i><span>Users Cards</span></a> --}}
                 </li>
               </ul>
             </li>
             <li>
-              <a href="{{ route('kanban') }}" data-original-title="" title=""> <i data-feather="airplay"></i><span>Kanban Board</span></a>
+              {{-- <a href="{{ route('kanban') }}" data-original-title="" title=""> <i data-feather="airplay"></i><span>Kanban Board</span></a> --}}
             </li>
             <li>
-              <a href="{{ route('bookmark') }}" data-original-title="" title=""> <i data-feather="heart"></i><span>Bookmark</span></a>
+              {{-- <a href="{{ route('bookmark') }}" data-original-title="" title=""> <i data-feather="heart"></i><span>Bookmark</span></a> --}}
             </li>
             <li>
-              <a href="{{ route('social-app') }}" data-original-title="" title=""> <i data-feather="zap"></i><span>Social App </span></a>
+              {{-- <a href="{{ route('social-app') }}" data-original-title="" title=""> <i data-feather="zap"></i><span>Social App </span></a> --}}
             </li>
           </ul>
         </li>
@@ -290,7 +290,7 @@
                 <h6 class="mb-2 mt-0 text-muted">Order Total : <span class="f-right f-20">$598.00</span></h6>
               </div>
             </li>
-            <li><a class="btn btn-block w-100 mb-2 btn-primary view-cart" href="{{ route('cart') }}">Go to shoping bag</a><a class="btn btn-block w-100 btn-secondary view-cart" href="{{ route('checkout') }}">Checkout</a></li>
+            <li><a class="btn btn-block w-100 mb-2 btn-primary view-cart" href="#">Go to shoping bag</a><a class="btn btn-block w-100 btn-secondary view-cart" href="#">Checkout</a></li>
           </ul>
         </li>
         <li class="onhover-dropdown">
@@ -356,7 +356,7 @@
       </ul>
     </div>
     <script class="result-template" type="text/x-handlebars-template">
-      <div class="ProfileCard u-cf">                        
+      <div class="ProfileCard u-cf">
       <div class="ProfileCard-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-airplay m-0"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><polygon points="12 15 17 21 7 21 12 15"></polygon></svg></div>
       <div class="ProfileCard-details">
       <div class="ProfileCard-realName">@{{name}}</div>
