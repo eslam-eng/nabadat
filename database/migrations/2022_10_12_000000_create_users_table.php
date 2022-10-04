@@ -3,6 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Location;
+use App\Models\User ;
 
 class CreateUsersTable extends Migration
 {
@@ -18,12 +20,12 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->tinyText('phone')->unique();
-            $table->tinyInteger('type')->default(\App\Models\User::CUSTOMERTYPE);
-            $table->foreignIdFor(\App\Models\Location::class);
+            $table->string('phone')->unique();
+            $table->tinyInteger('type')->default(User::CUSTOMERTYPE);
+            $table->foreignIdFor(Location::class)->nullable()->constrained()->onUpdate('cascade')->onDelete('set null');
             $table->timestamp('last_login')->nullable();
             $table->date('date_of_birth');
-            $table->boolean('is_active')->default(\App\Models\User::USERACTIVE);
+            $table->boolean('is_active')->default(User::USERACTIVE);
             $table->timestamps();
         });
     }

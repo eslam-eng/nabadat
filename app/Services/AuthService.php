@@ -16,7 +16,6 @@ class AuthService extends BaseService
         $identifierField = filter_var($identifier,FILTER_VALIDATE_EMAIL) ?'email':'phone';
         if (!auth()->attempt([$identifierField=>$identifier,'password'=>$password]))
             return throw new UserNotFoundException(__('lang.login failed'));
-
         return User::where($identifierField, $identifier)->first();
 
 
