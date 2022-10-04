@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-use Database\Seeders\LocationsTableSeeder;
+
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,7 +13,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call('Database\Seeders\LocationsTableSeeder');
         // \App\Models\User::factory(10)->create();
     }
 }
