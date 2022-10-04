@@ -1,4 +1,4 @@
-<?php 
+<?php
 	return  [
 		'Welcome' => 'Welcome',
 		'Back' => 'Back',
@@ -64,7 +64,11 @@
 		'Knowledgebase' => 'Knowledgebase',
 		'Support Ticket' => 'Support Ticket',
 		'Search Result' => 'Search Result',
-		'Landing Page' => 'Landing Page'
+		'Landing Page' => 'Landing Page',
+        'Locations'  => 'Locations',
+        'Country'  => 'Country',
+        'City'  => 'City',
+        'Governorate'  => 'Governorate',
 
 	]
 ?>
