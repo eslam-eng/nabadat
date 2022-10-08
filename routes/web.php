@@ -11,17 +11,44 @@ Route::get('/', function () {
 })->name('/');
 
 
-Route::GET('country/form', [App\Http\Controllers\LocationController::class,'getCountryForm'])->name('addCountry');
-Route::POST('store/country', 'App\Http\Controllers\LocationController@addCountry')->name('storeCountry');
-Route::GET('governate/form', 'App\Http\Controllers\LocationController@getGovernateForm')->name('governateform');
-Route::POST('store/governate', 'App\Http\Controllers\LocationController@addGovernateToCountry')->name('storeGovernate');
-Route::GET('city/form', 'App\Http\Controllers\LocationController@getCityForm')->name('cityform');
-Route::POST('store/city', 'App\Http\Controllers\LocationController@addCity')->name('storeGovernate');
+#Country Module
+Route::GET('country/index', [App\Http\Controllers\CountryController::class,'index'])->name('list.country');
+Route::GET('country/create', [App\Http\Controllers\CountryController::class,'create'])->name('create.country');
+Route::POST('country/store', [App\Http\Controllers\CountryController::class,'store'])->name('store.country');
+Route::DELETE('country/delete/{id}', [App\Http\Controllers\CountryController::class,'delete'])->name('delete.country');
+Route::GET('country/edit/{id}', [App\Http\Controllers\CountryController::class,'edit'])->name('edit.country');
+Route::GET('country/show/{id}', [App\Http\Controllers\CountryController::class,'show'])->name('show.country');
+Route::POST('country/update/{id}', [App\Http\Controllers\CountryController::class,'update'])->name('update.country');
+
+
+#Governorate Module
+Route::GET('governorate/index', [App\Http\Controllers\GovernorateController::class,'index'])->name('list.governorate');
+Route::GET('governorate/create', [App\Http\Controllers\GovernorateController::class,'create'])->name('create.governorate');
+Route::POST('governorate/store', [App\Http\Controllers\GovernorateController::class,'store'])->name('store.governorate');
+Route::DELETE('governorate/delete/{id}', [App\Http\Controllers\GovernorateController::class,'delete'])->name('delete.governorate');
+Route::GET('governorate/edit/{id}', [App\Http\Controllers\GovernorateController::class,'edit'])->name('edit.governorate');
+Route::GET('governorate/show/{id}', [App\Http\Controllers\GovernorateController::class,'show'])->name('show.governorate');
+Route::POST('governorate/update/{id}', [App\Http\Controllers\GovernorateController::class,'update'])->name('update.governorate');
+
+
+#City Module
+Route::GET('city/index', [App\Http\Controllers\CityController::class,'index'])->name('list.city');
+Route::GET('city/create', [App\Http\Controllers\CityController::class,'create'])->name('create.city');
+Route::POST('city/store', [App\Http\Controllers\CityController::class,'store'])->name('store.city');
+Route::DELETE('city/delete/{id}', [App\Http\Controllers\CityController::class,'delete'])->name('delete.city');
+Route::GET('city/edit/{id}', [App\Http\Controllers\CityController::class,'edit'])->name('edit.city');
+Route::GET('city/show/{id}', [App\Http\Controllers\CityController::class,'show'])->name('show.city');
+Route::POST('city/update/{id}', [App\Http\Controllers\CityController::class,'update'])->name('update.city');
+
+// Route::POST('store/country', 'App\Http\Controllers\LocationController@addCountry')->name('storeCountry');
+// Route::GET('governate/form', 'App\Http\Controllers\LocationController@getGovernateForm')->name('governateform');
+// Route::POST('store/governate', 'App\Http\Controllers\LocationController@addGovernateToCountry')->name('storeGovernate');
+// Route::GET('city/form', 'App\Http\Controllers\LocationController@getCityForm')->name('cityform');
+// Route::POST('store/city', 'App\Http\Controllers\LocationController@addCity')->name('storeGovernate');
+
+
 Route::POST('file/upload', [App\Http\Controllers\AttachmentController::class, 'upload']);
 Route::POST('file/delete', [App\Http\Controllers\AttachmentController::class, 'delete'])->name('file.delete');
-
-
-Route::view('file', 'file')->name('filemanager');
 
 
 #Language Change

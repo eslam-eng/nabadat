@@ -34,9 +34,9 @@
 							<div class="according-menu"><i class="fa fa-angle-{{request()->route()->getPrefix() == '/addCountry' ? 'down' : 'right' }}"></i></div>
 						</a>
 						<ul class="sidebar-submenu" style="display: {{ request()->route()->getPrefix() == '/addCountry' ? 'block;' : 'none;' }}">
-							<li><a class="lan-4 {{ Route::currentRouteName()=='index' ? 'active' : '' }}" href="{{route('addCountry')}}">{{ trans('lang.Country') }}</a></li>
-                            <li><a class="lan-4 {{ Route::currentRouteName()=='index' ? 'active' : '' }}" href="{{route('governateform')}}">{{ trans('lang.Governorate') }}</a></li>
-                            <li><a class="lan-4 {{ Route::currentRouteName()=='index' ? 'active' : '' }}" href="{{route('cityform')}}">{{ trans('lang.City') }}</a></li>
+							<li><a class="lan-4 {{ Route::currentRouteName()=='index' ? 'active' : '' }}" href="{{route('list.country')}}">{{ trans('lang.Country') }}</a></li>
+                            <li><a class="lan-4 {{ Route::currentRouteName()=='index' ? 'active' : '' }}" href="{{route('list.governorate')}}">{{ trans('lang.Governorate') }}</a></li>
+                            <li><a class="lan-4 {{ Route::currentRouteName()=='index' ? 'active' : '' }}" href="{{route('list.city')}}">{{ trans('lang.City') }}</a></li>
 						</ul>
 					</li>
 

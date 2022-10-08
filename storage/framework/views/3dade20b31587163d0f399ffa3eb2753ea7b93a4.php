@@ -25,7 +25,7 @@
 					<h5>ADD COUNTRY</h5>
 				</div>
 				<div class="card-body">
-					<form class="needs-validation" novalidate="" method="POST" action="/store/country" >
+					<form class="needs-validation" novalidate="" method="POST" action="<?php echo e(route('store.country')); ?>" >
                         <?php echo csrf_field(); ?>
 						<div class="row">
 							<div class="col-md-4 mb-3">

@@ -8,13 +8,6 @@ class FileManager
 {
     public function store($file , $extension, $fullDir)
     {
-
-        // $size = $file->filesize();
-        // if ($size > 400000) {
-        //     $img->resize(1500, null, function ($constraint) {
-        //         $constraint->aspectRatio();
-        //     });
-        // }
         $fileName = uniqid() . "." . $extension;
         if (!file_exists($fullDir)) {
             createDir($fullDir . "file");
