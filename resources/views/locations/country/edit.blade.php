@@ -26,27 +26,27 @@
 					<h5>ADD COUNTRY</h5>
 				</div>
 				<div class="card-body">
-					<form class="needs-validation" novalidate="" method="POST" action="{{route('store.country')}}" >
+					<form class="needs-validation" novalidate="" method="POST" action="{{route('update.country',['id' => $country->id])}}" >
                         @csrf
 						<div class="row">
 							<div class="col-md-4 mb-3">
 								<label for="validationCustom01">Slug</label>
-								<input name="slug" class="form-control" id="validationCustom01" type="text" placeholder="Slug" required="">
+								<input name="slug" value="{{$country->slug}}" class="form-control" id="validationCustom01" type="text" placeholder="Slug" required="">
 								<div class="valid-feedback">Looks good!</div>
 							</div>
 							<div class="col-md-4 mb-3">
 								<label for="validationCustom02"> Title</label>
-								<input name="title" class="form-control" id="validationCustom02" type="text" placeholder="Title" required="">
+								<input name="title" value="{{$country->title}}" class="form-control" id="validationCustom02" type="text" placeholder="Title" required="">
 								<div class="valid-feedback">Looks good!</div>
 							</div>
                             <div class="col-md-4 mb-3">
 								<label for="validationCustom01">ISO Code</label>
-								<input name="iso_code_2" class="form-control" id="validationCustom01" type="text" placeholder="ISO-Code" required="">
+								<input name="iso_code_2" value="{{$country->iso_code_2}}" class="form-control" id="validationCustom01" type="text" placeholder="ISO-Code" required="">
 								<div class="valid-feedback">Looks good!</div>
 							</div>
                             <div class="mb-2">
                                 <div class="col-form-label">Choose Currency</div>
-                                <select name="currency_id" class="js-example-placeholder-multiple col-sm-12" multiple="multiple">
+                                <select name="currency_id" value="{{$country->currency_id}}" class="js-example-placeholder-multiple col-sm-12" multiple="multiple">
                                     {{-- @foreach ($currencies as $currency) --}}
                                     <option value="1">£EGP</option>
                                     <option value="2">$US</option>

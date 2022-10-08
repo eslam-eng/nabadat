@@ -34,9 +34,9 @@
 							<div class="according-menu"><i class="fa fa-angle-<?php echo e(request()->route()->getPrefix() == '/addCountry' ? 'down' : 'right'); ?>"></i></div>
 						</a>
 						<ul class="sidebar-submenu" style="display: <?php echo e(request()->route()->getPrefix() == '/addCountry' ? 'block;' : 'none;'); ?>">
-							<li><a class="lan-4 <?php echo e(Route::currentRouteName()=='index' ? 'active' : ''); ?>" href="<?php echo e(route('addCountry')); ?>"><?php echo e(trans('lang.Country')); ?></a></li>
-                            <li><a class="lan-4 <?php echo e(Route::currentRouteName()=='index' ? 'active' : ''); ?>" href="<?php echo e(route('governateform')); ?>"><?php echo e(trans('lang.Governorate')); ?></a></li>
-                            <li><a class="lan-4 <?php echo e(Route::currentRouteName()=='index' ? 'active' : ''); ?>" href="<?php echo e(route('cityform')); ?>"><?php echo e(trans('lang.City')); ?></a></li>
+							<li><a class="lan-4 <?php echo e(Route::currentRouteName()=='index' ? 'active' : ''); ?>" href="<?php echo e(route('list.country')); ?>"><?php echo e(trans('lang.Country')); ?></a></li>
+                            <li><a class="lan-4 <?php echo e(Route::currentRouteName()=='index' ? 'active' : ''); ?>" href="<?php echo e(route('list.governorate')); ?>"><?php echo e(trans('lang.Governorate')); ?></a></li>
+                            <li><a class="lan-4 <?php echo e(Route::currentRouteName()=='index' ? 'active' : ''); ?>" href="<?php echo e(route('list.city')); ?>"><?php echo e(trans('lang.City')); ?></a></li>
 						</ul>
 					</li>
 

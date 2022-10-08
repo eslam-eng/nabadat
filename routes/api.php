@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::POST('file/upload', [App\Http\Controllers\Api\FileController::class, 'upload']);
 Route::POST('file/remove', [App\Http\Controllers\Api\FileController::class, 'remove']);
+// Route::GET('cities/{country_id}', [App\Http\Controllers\Api\::class, 'remove']);
 // $router->group(function () use ($router) {
 // });
 Route::middleware('auth:api')->get('/user', function (Request $request) {

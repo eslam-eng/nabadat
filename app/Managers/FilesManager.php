@@ -121,6 +121,24 @@ class FilesManager
         ];
     }
 
+    public function uploadImage($file, $dir, $exe)
+    {
+        $fullDir = 'uploads/'.$dir;
+        if (!file_exists($fullDir)) {
+            createDir($fullDir . "file");
+        }
+        $img = \Image::make($file);
+        //save image to directory
+        $fileName = uniqid() . "." . $exe;
+        $img->save($fullDir . $fileName);
+        return [
+            "status" => true,
+            "dir" => url('/') . $fullDir,
+            "file_name" => $fileName
+        ];
+    }
+
+
     public function removeFile($dir ,$fileName)
     {
         $fullDir = "uploads/". $dir;
