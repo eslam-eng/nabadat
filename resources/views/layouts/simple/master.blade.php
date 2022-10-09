@@ -74,6 +74,7 @@
     @include('layouts.simple.script')
     <!-- Plugin used-->
 
+    @include('layouts.included.toast')
     <script type="text/javascript">
       if ($(".page-wrapper").hasClass("horizontal-wrapper")) {
             $(".according-menu.other" ).css( "display", "none" );

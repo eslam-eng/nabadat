@@ -10,8 +10,11 @@
         'password' => 'كلمة المرور',
         'remember_password' => 'تذكرني',
         'sign_in' => 'تسجيل الدخول',
+        'signed_in_successfully' => 'تم تسجيل الدخول بنجاح',
         'create_account' => 'انشاء حساب',
         'donot_have_account' => 'ليس لديك حساب؟',
+        'sure' => 'هل انت متأكد',
+
 
 
     ];

@@ -10,7 +10,9 @@
 		'password' => 'Password',
 		'remember_password' => 'Remember password',
 		'sign_in' => 'Sign in',
+		'signed_in_successfully' => 'Signed in Successfully',
 		'create_account' => 'Create Account',
 		'donot_have_account' => 'Don\'t have account?',
+		'sure' => 'Are You Sure?',
 	]
 ?>

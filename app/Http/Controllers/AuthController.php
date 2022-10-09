@@ -23,7 +23,7 @@ class AuthController extends Controller
     {
         try {
             $this->authService->loginWithEmailOrPhone($request->identifier, $request->password);
-            return redirect()->intended('dashboard/index')->withSuccess('Signed in');
+            return redirect()->intended('dashboard/index')->with('toast',__('lang.sign_in'));
         }catch (UserNotFoundException $e) {
            return redirect()->route('login')->withSuccess($e->getMessage());
         }
