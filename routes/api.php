@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,14 +14,10 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::POST('file/upload', [App\Http\Controllers\Api\FileController::class, 'upload']);
-Route::POST('file/remove', [App\Http\Controllers\Api\FileController::class, 'remove']);
-// $router->group(function () use ($router) {
-// });
+Route::group(['prefix'=>'auth'],function (){
+    Route::post('register', [AuthController::class, 'createUser']);
+    Route::post('login', [AuthController::class, 'login']);
+});
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-
-
