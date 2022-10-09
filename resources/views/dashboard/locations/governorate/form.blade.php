@@ -1,13 +1,6 @@
 @extends('layouts.simple.master')
 @section('title', 'Validation Forms')
 
-@section('css')
-<link rel="stylesheet" type="text/css" href="{{asset('assets/css/vendors/select2.css')}}">
-@endsection
-
-@section('style')
-@endsection
-
 @section('breadcrumb-title')
 <h3>Governorate Form</h3>
 @endsection

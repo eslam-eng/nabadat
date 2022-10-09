@@ -13,6 +13,8 @@
 <script id="menu" src="{{asset('assets/js/sidebar-menu.js')}}"></script>
 <script src="{{asset('assets/js/toastr.min.js')}}"></script>
 <script src="{{asset('assets/js/sweet-alert/sweetalert.min.js')}}"></script>
+<script src="{{asset('assets/js/select2/select2.full.min.js')}}"></script>
+<script src="{{asset('assets/js/select2/select2-custom.js')}}"></script>
 @yield('script')
 
 @if(Route::current()->getName() != 'popover')
