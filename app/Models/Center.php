@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Center extends Model
 {
     use HasFactory;
-    const ACTIVE = 1 ,      SUPPORT_AUTO_SERVICE = 1;
-    const NON_ACTIVE = 0 ,  NON_SUPPORT_AUTO_SERVICE = 0;
+    const   ACTIVE = 1 ,
+            SUPPORT_AUTO_SERVICE = 1,
+            NON_ACTIVE = 0 ,
+            NON_SUPPORT_AUTO_SERVICE = 0;
 }

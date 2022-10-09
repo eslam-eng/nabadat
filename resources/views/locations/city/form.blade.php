@@ -13,7 +13,7 @@
 @endsection
 
 @section('breadcrumb-items')
-<li class="breadcrumb-item">Form Controls</li>
+<li class="breadcrumb-item"></li>
 <li class="breadcrumb-item active">City Form</li>
 @endsection
 

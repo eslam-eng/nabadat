@@ -10,6 +10,7 @@ use Illuminate\Validation\ValidationException;
 
 class BaseRequest extends FormRequest
 {
+    //extend it if you validate api request
    public function failedValidation(Validator $validator)
    {
       if ($this->expectsJson())
