@@ -14,7 +14,7 @@ class LocationsTableSeeder extends Seeder
      */
     public function run()
     {
-        $node = \App\Models\Country::create([
+        \App\Models\Location::create([
             'slug' => 'Eg',
             'title' => 'Egypt',
             'children' => [

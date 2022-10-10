@@ -17,8 +17,8 @@ class User extends Authenticatable
     const DOCTORTYPE = 3;
     const CENTERTYPE = 4;
 
-    const USERACTIVE = 1;
-    const USERNONACTIVE = 0;
+    const ACTIVE = 1;
+    const NONACTIVE = 0;
 
     /**
      * The attributes that are mass assignable.
@@ -27,7 +27,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name', 'email', 'password', 'phone', 'type',
-        'last_login', 'date_of_birth', 'is_active'
+        'last_login', 'date_of_birth', 'is_active','location_id'
     ];
 
     /**

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Exceptions\UserNotFoundException;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
+use App\Models\User;
 use App\Services\AuthService;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,7 +19,8 @@ class AuthController extends Controller
     {
 
         try {
-            $user = $this->authService->loginWithEmailOrPhone($request->identifier, $request->password);
+            $userType = User::CUSTOMERTYPE ;
+            $user = $this->authService->loginWithEmailOrPhone($request->identifier, $request->password,$userType);
             $data = [
                 'token'=>$user->getToken(),
                 'token_type'=>'Bearer',

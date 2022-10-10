@@ -16,17 +16,24 @@
             <div>
                <div><a class="logo text-start" href="index.html"><img class="img-fluid for-light" src="{{asset('assets/images/logo/login.png')}}" alt="looginpage"><img class="img-fluid for-dark" src="{{asset('assets/images/logo/logo_dark.png')}}" alt="looginpage"></a></div>
                <div class="login-main">
-                  <form class="theme-form">
+                  <form action="{{route('login')}}" method="post" role="form" class="theme-form">
+                      @csrf
                      <h4>{{__('lang.Sign_in_to_account')}}</h4>
                      <p>{{__('lang.enter_your_credential')}}</p>
                      <div class="form-group">
                         <label class="col-form-label">{{__('lang.email_or_phone')}}</label>
-                        <input class="form-control" name="email" type="email" required="" placeholder="Test@gmail.com">
+                        <input class="form-control @error('identifier') is-invalid @enderror" name="identifier" type="text" required placeholder="Test@gmail.com">
+                        @error('identifier')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                         @enderror
                      </div>
                      <div class="form-group">
                         <label class="col-form-label">{{__('lang.password')}}</label>
-                        <input class="form-control" type="password" name="password" required="" placeholder="*********">
-                        <div class="show-hide"><span class="show"></span></div>
+                        <input class="form-control @error('password') is-invalid @enderror" type="password" name="password" required placeholder="*********">
+                         @error('password')
+                         <div class="invalid-feedback">{{ $message }}</div>
+                         @enderror
+                         <div class="show-hide"><span class="show"></span></div>
                      </div>
                      <div class="form-group mb-0">
                         <div class="checkbox p-0">

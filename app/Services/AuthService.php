@@ -10,11 +10,14 @@ use Illuminate\Database\Eloquent\Model;
 class AuthService extends BaseService
 {
 
-    public function loginWithEmailOrPhone(string $identifier, string $password) :User|Model
+    public function loginWithEmailOrPhone(string $identifier, string $password,int $userType=null) :User|Model
     {
 
         $identifierField = filter_var($identifier,FILTER_VALIDATE_EMAIL) ? 'email':'phone';
-        if (!auth()->attempt([$identifierField=>$identifier,'password'=>$password]))
+        $credential = [$identifierField=>$identifier,'password'=>$password];
+        if (isset($userType))
+            $credential['type']=User::CUSTOMERTYPE;
+        if (!auth()->attempt($credential))
             return throw new UserNotFoundException(__('lang.login failed'));
         return User::where($identifierField, $identifier)->first();
 
