@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Managers;
+namespace App\Services;
 use App\Models\Location;
 use App\Exceptions\BadRequestHttpException;
 class LocationManager
