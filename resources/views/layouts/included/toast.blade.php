@@ -7,7 +7,7 @@
         "positionClass": "toast-top-right",
         "preventDuplicates": false,
         "onclick": null,
-        "showDuration": "300",
+        "showDuration": "1000",
         "hideDuration": "2000",
         "timeOut": "5000",
         "extendedTimeOut": "1000",
@@ -22,15 +22,15 @@
         @switch(session('toast')['type'])
 
         @case('error')
-            toastr.error({{session('toast')['message']}},{{session('toast')['title']}});
+            toastr.error("{{session('toast')['message']}}","{{session('toast')['title']}}");
         @break
 
         @case('info')
-            toastr.info({{session('toast')['message']}},{{session('toast')['title']}})
+            toastr.info("{{session('toast')['message']}}","{{session('toast')['title']}}")
         @break
 
         @default
-            toastr.success({{session('toast')['message']}},{{session('toast')['title']}})
+            toastr.success("{{session('toast')['message']}}","{{session('toast')['title']}}")
         @endswitch
 
     </script>

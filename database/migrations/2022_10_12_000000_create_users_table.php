@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->foreignIdFor(Location::class)->nullable()->constrained()->onUpdate('cascade')->onDelete('set null');
             $table->timestamp('last_login')->nullable();
             $table->date('date_of_birth');
-            $table->boolean('is_active')->default(User::USERACTIVE);
+            $table->boolean('is_active')->default(User::ACTIVE);
             $table->timestamps();
         });
     }

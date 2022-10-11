@@ -4,10 +4,6 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\AuthController;
 
-Route::get('/', function () {
-    return redirect()->route('index');
-})->name('/')->middleware('auth');
-
 //Language Change
 Route::get('lang/{locale}', function ($locale) {
     if (!in_array($locale, ['en', 'ar'])) {
@@ -18,19 +14,22 @@ Route::get('lang/{locale}', function ($locale) {
     return redirect()->back();
 })->name('lang');
 
-Route::prefix('dashboard')->group(function () {
-    Route::view('index', 'dashboard.index')->name('index');
-    Route::view('dashboard-02', 'dashboard.dashboard-02')->name('dashboard-02');
-});
-
 Route::prefix('authentication')->group(function () {
-    Route::get('login',[AuthController::class,'index'])->name('login');
-    Route::post('login',[AuthController::class,'login'])->name('login');
-    Route::get('sign-up', [AuthController::class,'signUp'])->name('sign-up');
-    Route::get('sign-up', [AuthController::class,'register'])->name('sign-up');
+    Route::middleware('guest')->group(function (){
+        Route::get('login',[AuthController::class,'index'])->name('login');
+        Route::post('login',[AuthController::class,'login'])->name('login');
+        Route::get('sign-up', [AuthController::class,'registerForm'])->name('sign-up');
+        Route::post('sign-up', [AuthController::class,'register'])->name('sign-up');
+    });
     Route::view('forget-password', 'authentication.forget-password')->name('forget-password');
     Route::view('reset-password', 'authentication.reset-password')->name('reset-password');
     Route::view('maintenance', 'authentication.maintenance')->name('maintenance');
+});
+
+Route::group(['prefix'=>'dashboard','middleware'=>'auth'],function (){
+    Route::get('/', function () {
+       dd(auth()->user());
+    })->name('/');
 });
 
 Route::get('/clear-cache', function() {

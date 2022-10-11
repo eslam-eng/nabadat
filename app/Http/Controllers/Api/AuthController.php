@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Exceptions\UserNotFoundException;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
+use App\Http\Requests\RegisterRequest;
+use App\Models\User;
 use App\Services\AuthService;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,7 +20,8 @@ class AuthController extends Controller
     {
 
         try {
-            $user = $this->authService->loginWithEmailOrPhone($request->identifier, $request->password);
+            $userType = User::CUSTOMERTYPE ;
+            $user = $this->authService->loginWithEmailOrPhone(identifier: $request->identifier, password: $request->password,userType: $userType);
             $data = [
                 'token'=>$user->getToken(),
                 'token_type'=>'Bearer',
@@ -30,6 +33,15 @@ class AuthController extends Controller
         }
 
     }
+
+    public function register(RegisterRequest $request)
+    {
+        $data = $request->validated();
+        $data['type'] = User::CUSTOMERTYPE;
+        $result = $this->authService->register(data: $data);
+        if ($result)
+            return apiResponse($result,__('lang.success'),200);
+        return apiResponse(data: null,message: __('lang.error_message',422));    }
 
     public function logout()
     {
