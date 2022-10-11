@@ -5,15 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreCountryRequest;
 use App\Models\Location;
-use Locale;
-
+use App\DataTables\CountriesDataTable;
+use App\Services\CountryService;
+use RealRashid\SweetAlert\Facades\Alert;
+use App\Repositories\LocationRepository;
 class CountryController extends Controller
 {
 
-    public function index()
+    public function index(CountriesDataTable $dataTables)
     {
-        $countries = Location::whereIsRoot()->get();
-        return view('locations.country.index')->with('countries', $countries);
+        return $dataTables->render('locations.country.index');
     }
 
     public function create()
@@ -24,31 +25,23 @@ class CountryController extends Controller
     public function store(StoreCountryRequest $request)
     {
         $countryData = $request->all();
-        Location::create($countryData);
-        toast('Your Country Has been submited!','success');
+        $service = new CountryService(new LocationRepository);
+        $service->PrepareLocationData($countryData);
+        Alert::success('Success Title', 'Success Message');
         return redirect()->back();
     }
 
     public function edit($id)
     {
         $country = Location::where('id', $id)->first();
+        $country->title_translations = $country->getTranslations('title');
         return view('locations.country.edit')->with('country' , $country);
     }
 
     public function update($id, StoreCountryRequest $request)
     {
-        if(!empty($request->slug)) {
-            $countryData['slug'] = $request->slug;
-        }
-        if(!empty($request->title)) {
-            $countryData['title'] = $request->title;
-        }
-        if(!empty($request->iso_code_2)) {
-            $countryData['iso_code_2'] = $request->iso_code_2;
-        }
-        if(!empty($countryData)) {
-            Location::where('id', $id)->update($countryData);
-        }
+        $service = new CountryService(new LocationRepository);
+        $service->updateLocation($id, $request);
         return redirect()->back();
     }
 

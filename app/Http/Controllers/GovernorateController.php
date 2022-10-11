@@ -4,16 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Location;
-use App\Managers\LocationManager;
 use App\Http\Requests\StoreCountryRequest;
+use App\Repositories\LocationRepository;
+use App\Services\GovernorateService;
+use App\DataTables\GovernoratesDataTable;
 
 class GovernorateController extends Controller
 {
 
-    public function index()
+    public function index(GovernoratesDataTable $dataTables)
     {
-        $nodes = Location::whereIsRoot()->get();
-        return view('locations.governorate.index')->with('nodes', $nodes);
+        return $dataTables->render('locations.governorate.index');
     }
 
     public function create()
@@ -25,8 +26,8 @@ class GovernorateController extends Controller
     public function store(StoreCountryRequest $request)
     {
         $governateData = $request->all();
-        $parent = Location::where('id','=', $request->parent_id)->first();
-        Location::create($governateData, $parent);
+        $governateService = new GovernorateService(new LocationRepository);
+        $governateService->PrepareLocationData($governateData);
         toast('Your Governorate Has been submited!','success');
         return redirect()->back();
     }
@@ -34,14 +35,16 @@ class GovernorateController extends Controller
     public function edit($id)
     {
         $governorate = Location::where('id', $id)->first();
-        return view('locations.governorate.edit')->with('governorate' , $governorate);
+        $countries = Location::whereIsRoot()->get();
+        $governorate->title_translations = $governorate->getTranslations('title');
+        return view('locations.governorate.edit')->with(['governorate'  => $governorate, "countries" => $countries]);
     }
 
     public function update($id, StoreCountryRequest $request)
     {
-       $mngr = new LocationManager;
-       $mngr->updateLocation($id, $request);
-       return redirect()->back();
+        $service = new GovernorateService(new LocationRepository);
+        $service->updateLocation($id, $request);
+        return redirect()->back();
     }
 
     public function delete($id)

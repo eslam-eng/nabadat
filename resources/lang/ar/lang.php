@@ -70,6 +70,14 @@
         'City'  => 'City',
         'Governorate'  => 'Governorate',
         'ADD_Governorate'  => 'اضافه محافظه',
+        'ENGLISH_TITLE' => "العنوان باللغه بالاجنبيه ",
+        'ARABIC_TITLE' => "العنوان باللغه العربيه ",
+        'CITY_LIST'  => 'قائمه المدن',
+        'ADD_NEW_CITY' => 'إضافه مدينه جديده',
+        'ADD_NEW_COUNTRY' => 'إضافه دوله جديده',
+        'ADD_NEW_GOVERNORATE' => 'إضافه محافظه جديده',
+        'Edit_City' => '  تعديل بيانات المدينه',
+
 
 	]
 ?>

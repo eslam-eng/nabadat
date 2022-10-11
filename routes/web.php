@@ -40,12 +40,6 @@ Route::GET('city/edit/{id}', [App\Http\Controllers\CityController::class,'edit']
 Route::GET('city/show/{id}', [App\Http\Controllers\CityController::class,'show'])->name('show.city');
 Route::POST('city/update/{id}', [App\Http\Controllers\CityController::class,'update'])->name('update.city');
 
-// Route::POST('store/country', 'App\Http\Controllers\LocationController@addCountry')->name('storeCountry');
-// Route::GET('governate/form', 'App\Http\Controllers\LocationController@getGovernateForm')->name('governateform');
-// Route::POST('store/governate', 'App\Http\Controllers\LocationController@addGovernateToCountry')->name('storeGovernate');
-// Route::GET('city/form', 'App\Http\Controllers\LocationController@getCityForm')->name('cityform');
-// Route::POST('store/city', 'App\Http\Controllers\LocationController@addCity')->name('storeGovernate');
-
 
 Route::POST('file/upload', [App\Http\Controllers\AttachmentController::class, 'upload']);
 Route::POST('file/delete', [App\Http\Controllers\AttachmentController::class, 'delete'])->name('file.delete');

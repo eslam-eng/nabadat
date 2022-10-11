@@ -69,6 +69,12 @@
         'Country'  => 'Country',
         'City'  => 'City',
         'Governorate'  => 'Governorate',
-
-	]
-?>
+        'ENGLISH_TITLE' => "ENGLISH TITLE",
+        'ARABIC_TITLE' => "ARABIC TITLE",
+        'CITY_LIST'  => 'City List',
+        'ADD_NEW_CITY' => 'ADD NEW CITY',
+        'ADD_NEW_COUNTRY' => 'ADD NEW COUNTRY',
+        'ADD_NEW_GOVERNORATE' => 'ADD NEW GOVERNORATE',
+        'Edit_City' =>  'EDIT CITY',
+        'Slug' => 'Slug'
+    ];

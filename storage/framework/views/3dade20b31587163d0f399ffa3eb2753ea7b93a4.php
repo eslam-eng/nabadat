@@ -28,19 +28,24 @@
 					<form class="needs-validation" novalidate="" method="POST" action="<?php echo e(route('store.country')); ?>" >
                         <?php echo csrf_field(); ?>
 						<div class="row">
-							<div class="col-md-4 mb-3">
+							<div class="col-md-6 mb-3">
 								<label for="validationCustom01">Slug</label>
 								<input name="slug" class="form-control" id="validationCustom01" type="text" placeholder="Slug" required="">
 								<div class="valid-feedback">Looks good!</div>
 							</div>
-							<div class="col-md-4 mb-3">
-								<label for="validationCustom02"> Title</label>
-								<input name="title" class="form-control" id="validationCustom02" type="text" placeholder="Title" required="">
+                            <div class="col-md-6 mb-4">
+                                <label for="validationCustom01">ISO Code</label>
+                                <input name="iso_code_2" class="form-control" id="validationCustom01" type="text" placeholder="ISO-Code" required="">
+                                <div class="valid-feedback">Looks good!</div>
+                            </div>
+							<div class="col-md-6 mb-3">
+								<label for="validationCustom02"> <?php echo e(__("arabic_title")); ?></label>
+								<input name="title_ar" class="form-control" id="validationCustom02" type="text" placeholder="Arabic Title" required="">
 								<div class="valid-feedback">Looks good!</div>
 							</div>
-                            <div class="col-md-4 mb-3">
-								<label for="validationCustom01">ISO Code</label>
-								<input name="iso_code_2" class="form-control" id="validationCustom01" type="text" placeholder="ISO-Code" required="">
+							<div class="col-md-6 mb-3">
+								<label for="validationCustom02"><?php echo e(__("english_title")); ?></label>
+								<input name="title_en" class="form-control" id="validationCustom02" type="text" placeholder="English Title" required="">
 								<div class="valid-feedback">Looks good!</div>
 							</div>
                             <div class="mb-2">

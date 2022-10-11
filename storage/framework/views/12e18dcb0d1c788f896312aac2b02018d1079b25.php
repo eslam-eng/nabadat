@@ -28,21 +28,27 @@
 					<form class="needs-validation" novalidate="" method="POST" action="<?php echo e(route('update.country',['id' => $country->id])); ?>" >
                         <?php echo csrf_field(); ?>
 						<div class="row">
-							<div class="col-md-4 mb-3">
+							<div class="col-md-6 mb-3">
 								<label for="validationCustom01">Slug</label>
 								<input name="slug" value="<?php echo e($country->slug); ?>" class="form-control" id="validationCustom01" type="text" placeholder="Slug" required="">
 								<div class="valid-feedback">Looks good!</div>
 							</div>
-							<div class="col-md-4 mb-3">
-								<label for="validationCustom02"> Title</label>
-								<input name="title" value="<?php echo e($country->title); ?>" class="form-control" id="validationCustom02" type="text" placeholder="Title" required="">
-								<div class="valid-feedback">Looks good!</div>
-							</div>
-                            <div class="col-md-4 mb-3">
+                            <div class="col-md-6 mb-3">
 								<label for="validationCustom01">ISO Code</label>
 								<input name="iso_code_2" value="<?php echo e($country->iso_code_2); ?>" class="form-control" id="validationCustom01" type="text" placeholder="ISO-Code" required="">
 								<div class="valid-feedback">Looks good!</div>
 							</div>
+							<div class="col-md-6 mb-3">
+								<label for="validationCustom02"> <?php echo e(__("TITLE")); ?></label>
+								<input name="title_en" value="<?php echo e($country->title_translations['en']); ?>" class="form-control" id="validationCustom02" type="text" placeholder="<?php echo e(__('TITLE')); ?>" required="">
+								<div class="valid-feedback">Looks good!</div>
+							</div>
+                            <div class="col-md-6 mb-3">
+								<label for="validationCustom02"> <?php echo e(__("ARABIC_TITLE")); ?></label>
+								<input name="title_ar" value="<?php echo e($country->title_translations['ar']); ?>" class="form-control" id="validationCustom02" type="text" placeholder="<?php echo e(__('ARABIC_TITLE')); ?>" required="">
+								<div class="valid-feedback">Looks good!</div>
+							</div>
+
                             <div class="mb-2">
                                 <div class="col-form-label">Choose Currency</div>
                                 <select name="currency_id" value="<?php echo e($country->currency_id); ?>" class="js-example-placeholder-multiple col-sm-12" multiple="multiple">

@@ -29,21 +29,27 @@
 					<form class="needs-validation" novalidate="" method="POST" action="{{route('update.country',['id' => $country->id])}}" >
                         @csrf
 						<div class="row">
-							<div class="col-md-4 mb-3">
+							<div class="col-md-6 mb-3">
 								<label for="validationCustom01">Slug</label>
 								<input name="slug" value="{{$country->slug}}" class="form-control" id="validationCustom01" type="text" placeholder="Slug" required="">
 								<div class="valid-feedback">Looks good!</div>
 							</div>
-							<div class="col-md-4 mb-3">
-								<label for="validationCustom02"> Title</label>
-								<input name="title" value="{{$country->title}}" class="form-control" id="validationCustom02" type="text" placeholder="Title" required="">
-								<div class="valid-feedback">Looks good!</div>
-							</div>
-                            <div class="col-md-4 mb-3">
+                            <div class="col-md-6 mb-3">
 								<label for="validationCustom01">ISO Code</label>
 								<input name="iso_code_2" value="{{$country->iso_code_2}}" class="form-control" id="validationCustom01" type="text" placeholder="ISO-Code" required="">
 								<div class="valid-feedback">Looks good!</div>
 							</div>
+							<div class="col-md-6 mb-3">
+								<label for="validationCustom02"> {{__("TITLE")}}</label>
+								<input name="title_en" value="{{$country->title_translations['en']}}" class="form-control" id="validationCustom02" type="text" placeholder="{{__('TITLE')}}" required="">
+								<div class="valid-feedback">Looks good!</div>
+							</div>
+                            <div class="col-md-6 mb-3">
+								<label for="validationCustom02"> {{__("ARABIC_TITLE")}}</label>
+								<input name="title_ar" value="{{$country->title_translations['ar']}}" class="form-control" id="validationCustom02" type="text" placeholder="{{__('ARABIC_TITLE')}}" required="">
+								<div class="valid-feedback">Looks good!</div>
+							</div>
+
                             <div class="mb-2">
                                 <div class="col-form-label">Choose Currency</div>
                                 <select name="currency_id" value="{{$country->currency_id}}" class="js-example-placeholder-multiple col-sm-12" multiple="multiple">

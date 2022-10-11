@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Managers\FilesManager;
-// use App\Exceptions\BadRequestHttpException;
+use App\Services\FilesManager;
+use App\Exceptions\BadRequestHttpException;
 
 class FileController extends Controller
 {

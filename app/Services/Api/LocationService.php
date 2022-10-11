@@ -7,8 +7,9 @@ use App\Http\Resources\GetListCountriesResource;
 use App\Http\Resources\GetListGovernoratesResource;
 use App\Traits\ApiResponses;
 use App\Exceptions\NotFoundHttpException;
+use App\Services\BaseService;
 
-class LocationService
+class LocationService extends BaseService
 {
     use ApiResponses;
 

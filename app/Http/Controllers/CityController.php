@@ -5,25 +5,28 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Location;
 use App\Http\Requests\StoreCountryRequest;
-
+use App\DataTables\CitiesDataTable;
+use App\Services\GovernorateService;
+use App\Repositories\LocationRepository;
 class CityController extends Controller
 {
 
-    public function index()
+    public function index(CitiesDataTable $dataTables)
     {
-        $cities = Location::whereIsLeaf()->get();
-        return view('locations.city.index')->with('cities', $cities);
+        return $dataTables->render('locations.city.index');
     }
 
     public function create()
     {
-        return view('locations.city.form');
+        $governates = Location::withDepth()->having('depth', '=', 1)->get();
+        return view('locations.city.form')->with('governates' , $governates);
     }
 
     public function store(StoreCountryRequest $request)
     {
-        $countryData = $request->all();
-        Location::create($countryData);
+        $governateData = $request->all();
+        $governateService = new GovernorateService(new LocationRepository);
+        $governateService->PrepareLocationData($governateData);
         toast('Your Country Has been submited!','success');
         return redirect()->back();
     }
@@ -31,23 +34,15 @@ class CityController extends Controller
     public function edit($id)
     {
         $city = Location::where('id', $id)->first();
-        return view('locations.city.edit')->with('city' , $city);
+        $city->title_translations = $city->getTranslations('title');
+        $governates = Location::withDepth()->having('depth', '=', 1)->get();
+        return view('locations.city.edit')->with(['city' => $city, 'governates' =>$governates]);
     }
 
     public function update($id, StoreCountryRequest $request)
     {
-        if(!empty($request->slug)) {
-            $countryData['slug'] = $request->slug;
-        }
-        if(!empty($request->title)) {
-            $countryData['title'] = $request->title;
-        }
-        if(!empty($request->iso_code_2)) {
-            $countryData['iso_code_2'] = $request->iso_code_2;
-        }
-        if(!empty($countryData)) {
-            Location::where('id', $id)->update($countryData);
-        }
+        $service = new GovernorateService(new LocationRepository);
+        $service->updateLocation($id, $request);
         return redirect()->back();
     }
 

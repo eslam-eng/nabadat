@@ -5,7 +5,7 @@ namespace App\Services;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\Storage;
 
-class ImageManager
+class ImageService extends BaseService
 {
     public function store($file , $extension, $fullDir)
     {

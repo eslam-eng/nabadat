@@ -16,7 +16,7 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('breadcrumb-title'); ?>
-<h3>Country Form</h3>
+<h3><?php echo e(trans('lang.CITY_LIST')); ?></h3>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('breadcrumb-items'); ?>
@@ -25,59 +25,17 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
+
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="card">
+                <div class="card-header">
+					<a href="<?php echo e(route('create.city')); ?>"> <?php echo e(trans('lang.ADD_NEW_CITY')); ?></a>
+				</div>
 				<div class="card-header">
-					<table id="" class="display" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Slug</th>
-                                <th>Title</th>
-                                <th>Currency</th>
-                                <th>ISO Code</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php $__currentLoopData = $cities; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $city): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <tr>
-                                <td><?php echo e($city->id); ?></td>
-                                <td><?php echo e($city->slug); ?></td>
-                                <td><?php echo e($city->title); ?></td>
-                                <td><?php echo e($city->currency_id); ?></td>
-                                <td><?php echo e($city->iso_code_2); ?></td>
-                                <td>
+					<?php echo $dataTable->table(['width' => '100%','class'=>'table table-striped table-bordered']); ?>
 
-                                <a href="<?php echo e(route('edit.city',['id' => $city->id])); ?>" >
-                                    <i class="fa fa-pencil-square-o"></i>
-                                </a>
-
-                                <a href="<?php echo e(route('show.city',['id' => $city->id])); ?>" >
-                                    <i class="fa fa-eye"></i>
-                                </a>
-                                <form class="delete_form" id="myformarticle<?php echo e($city->id); ?>"  action="<?php echo e(route('delete.city',['id' => $city->id])); ?>" method="post">
-                                    <?php echo e(csrf_field()); ?><input type="hidden" name="_method" value="DELETE" /><input type="hidden" name="action_type" value="delete" />
-                                    <button type="submit" class="delete_btnn label btn btn-primary btn-xs" name="Delete"><i class="fa fa-trash"></i></button>
-
-                                </form>
-                                </td>
-                            </tr>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>ID</th>
-                                <th>Slug</th>
-                                <th>Title</th>
-                                <th>Currency</th>
-                                <th>ISO Code</th>
-                                <th>Actions</th>
-                            </tr>
-                        </tfoot>
-                    </table>
 				</div>
 			</div>
 		</div>
@@ -86,6 +44,9 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('script'); ?>
+<?php echo $dataTable->scripts(); ?>
+
+
 <script>
     $(document).ready(function () {
     $('table.display').DataTable();

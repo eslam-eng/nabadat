@@ -26,24 +26,31 @@
 					<h5>ADD Governorate</h5>
 				</div>
 				<div class="card-body">
-					<form class="needs-validation" novalidate="" method="POST" action="/store/governate" >
+					<form class="needs-validation" novalidate="" method="POST" action="{{ route('store.governorate')}}" >
                         @csrf
 						<div class="row">
-							<div class="col-md-4 mb-3">
+							<div class="col-md-6 mb-3">
 								<label for="validationCustom01">Slug</label>
 								<input name="slug" class="form-control" id="validationCustom01" type="text" placeholder="Slug" required="">
 								<div class="valid-feedback">Looks good!</div>
 							</div>
-							<div class="col-md-4 mb-3">
-								<label for="validationCustom02"> Title</label>
-								<input name="title" class="form-control" id="validationCustom02" type="text" placeholder="Title" required="">
-								<div class="valid-feedback">Looks good!</div>
-							</div>
-                            <div class="col-md-4 mb-3">
+                            <div class="col-md-6 mb-3">
 								<label for="validationCustom01">ISO Code</label>
 								<input name="iso_code_2" class="form-control" id="validationCustom01" type="text" placeholder="ISO-Code" required="">
 								<div class="valid-feedback">Looks good!</div>
 							</div>
+							<div class="col-md-6 mb-3">
+								<label for="validationCustom02"> {{__('ENGLISH_TITLE')}}</label>
+								<input name="title_en" class="form-control" id="validationCustom02" type="text" placeholder="{{__('ENGLISH_TITLE')}}" required="">
+								<div class="valid-feedback">Looks good!</div>
+							</div>
+
+							<div class="col-md-6 mb-3">
+								<label for="validationCustom02"> {{__('ARABIC_TITLE')}}</label>
+								<input name="title_ar" class="form-control" id="validationCustom02" type="text" placeholder="{{__('ARABIC_TITLE')}}" required="">
+								<div class="valid-feedback">Looks good!</div>
+							</div>
+
                             <div class="mb-2">
                                 <div class="col-form-label">Choose Country</div>
                                 <select name="parent_id" class="js-example-placeholder-multiple col-sm-12" multiple="multiple">
