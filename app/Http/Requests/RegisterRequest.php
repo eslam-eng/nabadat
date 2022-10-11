@@ -26,7 +26,6 @@ class RegisterRequest extends BaseRequest
             'email'=>'required|email|unique:users',
             'phone'=>'required|numeric|unique:users',
             'password'=>'required|string|confirmed|min:6',
-            'password_confirmation '=>'required|string',
             'date_of_birth'=>'required|date',
             'location_id'=>'required|integer|exists:locations,id'
         ];

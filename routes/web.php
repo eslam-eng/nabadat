@@ -18,8 +18,8 @@ Route::prefix('authentication')->group(function () {
     Route::middleware('guest')->group(function (){
         Route::get('login',[AuthController::class,'index'])->name('login');
         Route::post('login',[AuthController::class,'login'])->name('login');
-        Route::get('sign-up', [AuthController::class,'signUp'])->name('sign-up');
-        Route::get('sign-up', [AuthController::class,'register'])->name('sign-up');
+        Route::get('sign-up', [AuthController::class,'registerForm'])->name('sign-up');
+        Route::post('sign-up', [AuthController::class,'register'])->name('sign-up');
     });
     Route::view('forget-password', 'authentication.forget-password')->name('forget-password');
     Route::view('reset-password', 'authentication.reset-password')->name('reset-password');

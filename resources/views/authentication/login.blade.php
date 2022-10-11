@@ -31,9 +31,9 @@
                         <label class="col-form-label">{{__('lang.password')}}</label>
                         <input class="form-control @error('password') is-invalid @enderror" type="password" name="password" required placeholder="*********">
                          @error('password')
-                         <div class="invalid-feedback">{{ $message }}</div>
+                            <div class="invalid-feedback">{{ $message }}</div>
                          @enderror
-                         <div class="show-hide"><span class="show"></span></div>
+{{--                         <div class="show-hide"><span class="show"></span></div>--}}
                      </div>
                      <div class="form-group mb-0">
                         <div class="checkbox p-0">
@@ -53,4 +53,5 @@
 @endsection
 
 @section('script')
+    @include('layouts.included.toast')
 @endsection

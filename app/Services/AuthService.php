@@ -23,4 +23,14 @@ class AuthService extends BaseService
 
 
     }
+
+
+    /**
+     * @param array $data
+     * @return mixed
+     */
+    public function register(array $data=[]): mixed
+    {
+        return User::create($data);
+    }
 }
