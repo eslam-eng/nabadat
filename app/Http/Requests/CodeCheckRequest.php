@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
-class ForgotPasswordRequest extends BaseRequest
+use Illuminate\Foundation\Http\FormRequest;
+
+class CodeCheckRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -17,26 +19,24 @@ class ForgotPasswordRequest extends BaseRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array
+     * @return array<string, mixed>
      */
     public function rules()
     {
         return [
-            'phone' => 'required|exists:users',
+            'code' => 'required|string|exists:reset_code_passwords',
         ];
     }
 
     /**
-     * the data of above request
+     * messages
      *
      * @return array
      */
-    public function data()
+    public function messages()
     {
         return [
-            'email' => request()->email,
-            'code' => mt_rand(100000, 999999),
-            'created_at' => now()
+            'code.exists' => __('lang.code_is_invalid')
         ];
     }
 }

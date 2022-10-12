@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
-use App\Http\Controllers\Api\ForgotPasswordController;
+use App\Http\Controllers\Api\PhoneVerifyController;
 use App\Http\Controllers\Api\RestPasswordController;
 
 /*
@@ -19,6 +19,7 @@ use App\Http\Controllers\Api\RestPasswordController;
 Route::group(['prefix'=>'auth'],function (){
     Route::post('register', [AuthController::class, 'register']);
     Route::post('login', [AuthController::class, 'login']);
-    Route::post('password/forget',  ForgotPasswordController::class);
+    Route::post('phone/verify',  PhoneVerifyController::class);
+    Route::post('password/forget',  PhoneVerifyController::class);
     Route::post('password/reset', RestPasswordController::class);
 });
