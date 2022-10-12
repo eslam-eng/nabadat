@@ -1,23 +1,23 @@
-@extends('layouts.simple.master')
-@section('title', 'Validation Forms')
 
-@section('css')
-<link rel="stylesheet" type="text/css" href="{{asset('assets/css/vendors/select2.css')}}">
-@endsection
+<?php $__env->startSection('title', 'Validation Forms'); ?>
 
-@section('style')
-@endsection
+<?php $__env->startSection('css'); ?>
+<link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/vendors/select2.css')); ?>">
+<?php $__env->stopSection(); ?>
 
-@section('breadcrumb-title')
+<?php $__env->startSection('style'); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('breadcrumb-title'); ?>
 <h3>Country Form</h3>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('breadcrumb-items')
+<?php $__env->startSection('breadcrumb-items'); ?>
 <li class="breadcrumb-item">Form Controls</li>
 <li class="breadcrumb-item active">Country Form</li>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-sm-12">
@@ -26,8 +26,8 @@
 					<h5>ADD COUNTRY</h5>
 				</div>
 				<div class="card-body">
-					<form class="needs-validation" novalidate method="POST" action="{{route('store.country')}}" >
-                        @csrf
+					<form class="needs-validation" novalidate method="POST" action="<?php echo e(route('store.country')); ?>" >
+                        <?php echo csrf_field(); ?>
 						<div class="row">
 							<div class="col-md-6 mb-3">
 								<label for="validationCustom01">Slug</label>
@@ -44,14 +44,14 @@
 
                             </div>
 							<div class="col-md-6 mb-3">
-								<label for="validationCustom02"> {{__("arabic_title")}}</label>
+								<label for="validationCustom02"> <?php echo e(__("arabic_title")); ?></label>
 								<input name="title_ar" class="form-control" id="validationCustom02" type="text" placeholder="Arabic Title" required>
 								<div class="valid-feedback">Looks good!</div>
 								<div class="invalid-feedback">Please Add Valid Arabic Title.</div>
 
 							</div>
 							<div class="col-md-6 mb-3">
-								<label for="validationCustom02">{{__("english_title")}}</label>
+								<label for="validationCustom02"><?php echo e(__("english_title")); ?></label>
 								<input name="title_en" class="form-control" id="validationCustom02" type="text" placeholder="English Title" required>
 								<div class="valid-feedback">Looks good!</div>
 								<div class="invalid-feedback">Please Add Valid English Title.</div>
@@ -60,12 +60,12 @@
                             <div class="mb-2">
                                 <div class="col-form-label">Choose Currency</div>
                                 <select name="currency_id" class="js-example-placeholder-multiple col-sm-12" multiple="multiple" >
-                                    {{-- @foreach ($currencies as $currency) --}}
+                                    
                                     <option value="1">£EGP</option>
                                     <option value="2">$US</option>
                                     <option value="3">€EUR</option>
                                     <option value="4">﷼SAR</option>
-                                    {{-- @endforeach --}}
+                                    
                                 </select>
                             </div>
 						</div>
@@ -76,10 +76,12 @@
 		</div>
 	</div>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('script')
-<script src="{{asset('assets/js/form-validation-custom.js')}}"></script>
-<script src="{{asset('assets/js/select2/select2.full.min.js')}}"></script>
-<script src="{{asset('assets/js/select2/select2-custom.js')}}"></script>
-@endsection
+<?php $__env->startSection('script'); ?>
+<script src="<?php echo e(asset('assets/js/form-validation-custom.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/js/select2/select2.full.min.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/js/select2/select2-custom.js')); ?>"></script>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.simple.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\Nabadat\resources\views/locations/country/form.blade.php ENDPATH**/ ?>

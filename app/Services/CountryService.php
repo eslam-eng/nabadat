@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Repositories\LocationRepository;
 use App\Models\Location;
+use Illuminate\Support\Facades\DB;
 
 class CountryService extends BaseService
 {
@@ -67,6 +68,7 @@ class CountryService extends BaseService
 
     public function saveLocation($data)
     {
+     
         return  Location::create($data);
     }
 }

@@ -24,6 +24,7 @@ class CountryController extends Controller
 
     public function store(StoreCountryRequest $request)
     {
+        toast('Info Toast','info');
         $countryData = $request->all();
         $service = new CountryService(new LocationRepository);
         $service->PrepareLocationData($countryData);

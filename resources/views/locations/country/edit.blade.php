@@ -33,21 +33,29 @@
 								<label for="validationCustom01">Slug</label>
 								<input name="slug" value="{{$country->slug}}" class="form-control" id="validationCustom01" type="text" placeholder="Slug" required="">
 								<div class="valid-feedback">Looks good!</div>
+								<div class="invalid-feedback">Please Choose Slug.</div>
+
 							</div>
                             <div class="col-md-6 mb-3">
 								<label for="validationCustom01">ISO Code</label>
 								<input name="iso_code_2" value="{{$country->iso_code_2}}" class="form-control" id="validationCustom01" type="text" placeholder="ISO-Code" required="">
 								<div class="valid-feedback">Looks good!</div>
+								<div class="invalid-feedback">Please Choose ISO Code.</div>
+
 							</div>
 							<div class="col-md-6 mb-3">
 								<label for="validationCustom02"> {{__("TITLE")}}</label>
 								<input name="title_en" value="{{$country->title_translations['en']}}" class="form-control" id="validationCustom02" type="text" placeholder="{{__('TITLE')}}" required="">
 								<div class="valid-feedback">Looks good!</div>
+								<div class="invalid-feedback">Please Choose English Title.</div>
+
 							</div>
                             <div class="col-md-6 mb-3">
 								<label for="validationCustom02"> {{__("ARABIC_TITLE")}}</label>
 								<input name="title_ar" value="{{$country->title_translations['ar']}}" class="form-control" id="validationCustom02" type="text" placeholder="{{__('ARABIC_TITLE')}}" required="">
 								<div class="valid-feedback">Looks good!</div>
+								<div class="invalid-feedback">Please Choose Arabic Title.</div>
+
 							</div>
 
                             <div class="mb-2">

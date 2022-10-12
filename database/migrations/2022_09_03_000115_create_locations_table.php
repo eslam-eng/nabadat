@@ -19,8 +19,8 @@ class CreateLocationsTable extends Migration
             $table->string('slug', 191);
             $table->string('iso_code_3', 45)->nullable();
             $table->string('iso_code_2', 45)->nullable();
-            $table->bigInteger('currency_id')->nullable();
-            $table->foreign('currency_id')->references('currencies')->on('id')->onDelete('CASCADE');
+            $table->unsignedBigInteger('currency_id')->nullable();
+            $table->foreign('currency_id')->references('id')->on('currencies')->onDelete('CASCADE');
             $table->tinyInteger('is_active')->default(0);
             $table->text('title');
             $table->timestamps();
